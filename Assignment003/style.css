@@ -1,0 +1,49 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+
+.grandparent{
+    display: flex;
+    width:100%;
+    justify-content: space-around;
+    align-items: center;
+    padding:1%;
+}
+
+.grandparent div{
+    text-align: center;
+}
+
+.parent,.quizparent{
+    padding:2% 5%;
+    background-color:rgb(148, 186, 255);
+    width:700px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+}
+
+.quizparent{
+    margin:6% 30%;
+    color: white;
+    background-color:rgb(101, 155, 255);
+    font-size: x-large;
+}
+
+.child{
+    width:100%;
+    padding:3%;
+    font-size: larger;
+    border-radius: 30px;
+    color: white;
+    background-color:rgb(101, 155, 255);
+}
+
+button{
+    padding:20px 60px;
+}
