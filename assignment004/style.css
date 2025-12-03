@@ -1,0 +1,200 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+
+#login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#6876DF,#715DBB);
+}
+
+#loginMain,#signUp{
+    width: 35%;
+    padding: 4% 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: white;
+    font-size: larger;
+    box-shadow: 5px 5px 5px 2px black;
+    animation: intro 1s ease-out;
+}
+
+#loginMain input {
+    padding: 5px 5px;
+}
+
+#login button {
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#login button:hover,#signUp button:hover{
+    background:linear-gradient( to right,#7888ff,#715DBB);
+    color: white;
+}
+
+
+#activateSignup,#activateLogin{
+    color: #438e99;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hide{
+    display: none !important;
+}
+
+#loginError{
+    color:red;
+    font-size: large;
+}
+
+@keyframes intro{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+main{
+    width:100%;
+    height:100vh;
+    background:linear-gradient(to right,#6876DF,#715DBB) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:40px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:30%;
+    border-radius: 10px;
+    padding:1%;
+    color:black;
+    font-size: large;
+    background-color: white;
+}
+
+header button{
+    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.466);
+    padding:5px;
+}
+
+header button:hover{
+    border:0px;
+    background-color: #7888ff;
+    color: white;
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.actions{
+    width:30%;
+background-color: white;
+border-radius: 20px;
+padding:1%;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+flex-direction: column;
+}
+
+#options{
+display:flex;
+width: 100%;
+align-items: center;
+justify-content: space-evenly;
+background-color:white;
+border-radius:5px;
+background-color: rgb(230, 230, 230);
+}
+
+#options div{
+    text-align: center;
+    width:50%;
+    padding:3% 5%;
+    border-radius:5px;
+}
+
+#options div:hover{
+    background:linear-gradient( to right,#7888ff,#715DBB);
+    color:white;
+
+}
+
+.selected{
+    background:linear-gradient( to right,#7888ff,#715DBB);
+    color:white;
+}
+
+.balance{
+    background:linear-gradient(to right,#6876DF,#715DBB) ;
+    border-radius: 20px;
+    color:white;
+    padding:5% 35%;
+    font-size:larger ;
+}
+
+#deposit,#withdraw{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    padding:2%;
+    font-size: larger;
+}
+
+#deposit div,#withdraw div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#deposit input,#withdraw input{
+    margin:3% 5%;
+    padding:2%
+}
+
+.actionbuttons{
+    width:45%;
+    padding:2% 0%;
+    border-radius: 15px;
+    border: 1.5px solid black;
+}
+
+.actionbuttons:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.mainActionButton{
+    color: white;
+    background:linear-gradient(to right,#6876DF,#715DBB);
+}
+
+#withdrawWarning{
+    color:red;
+    font-size: large;
+}
