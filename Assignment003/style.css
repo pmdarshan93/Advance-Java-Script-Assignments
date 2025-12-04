@@ -29,7 +29,9 @@
 }
 
 .quizparent{
-    margin:6% 30%;
+    position: fixed;
+    top:50%;
+    left:30%;
     color: white;
     background-color:rgb(101, 155, 255);
     font-size: x-large;
@@ -39,9 +41,21 @@
     width:100%;
     padding:3%;
     font-size: larger;
-    border-radius: 30px;
+    border-radius: 20px;
     color: white;
     background-color:rgb(101, 155, 255);
+    border-left:5px solid rgb(0, 89, 255);
+    animation: start 1s ease-in-out;
+}
+
+@keyframes start{
+    0%{
+        transform:scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+
 }
 
 button{
