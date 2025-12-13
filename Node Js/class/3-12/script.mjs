@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 // console.log(chalk.bold.bgGreen("THIS IS NODE BUDDYYYYYYYY"));
 
-// console.log(chalk.underline.green("3 Months to go to team"));
+console.log(chalk.underline.green("3 Months to go to team"));
 
 let today=dayjs();
 
@@ -31,6 +31,8 @@ console.log(wcDay.isAfter(dayjs('1982-01-01')));
 console.log(wcDay.isSame(dayjs('1983-06-25')))
 
 console.log(wcDay.isSame(dayjs('1983-06-25'),'day'))
+
+console.log(dayjs().diff(dayjs("2025-12-5"),'day'));
 
 
 console.log(dayjs().add(1,"Month").format('YYYY-MM-DD HH:mm'));
