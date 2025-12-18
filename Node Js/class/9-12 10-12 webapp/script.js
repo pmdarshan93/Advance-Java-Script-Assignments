@@ -22,33 +22,37 @@ app.get('/random',(req,res)=>{
         min,max,random
 })
 })
-// const server=http.createServer(app);
-// console.log(__dirname)
-// function handler(req,res){
-//     if(req.url==="/"){
-//         fs.readFile(path.join(__dirname,'/index.html'),(err,data)=>{
-//             if(err){
-//                 res.statusCode=500;
-//                 res.setHeader=('Content-Type','text/plain');
-//                 res.end("Error loading file");
-//             }
-//             else{
-//                 res.statusCode=200;
-//                 res.setHeader=('Content-Type','text/html');
-//                 res.end(data);
-//             }
-//         })
-//     // res.statusCode=200;
-//     // res.setHeader('Content-Type','text/plain');
-//     // res.end("Hello From Server");
-//      }
-//     else if(req.url=="/about"){
-//         res.statusCode=200;
-//     res.setHeader('Content-Type','text/plain');
-//     res.end("Hello From About serve");
-//     }
+
+// const server=httpcreateServer(app)
+
+
+const server=http.createServer();
+console.log(__dirname)
+function handler(req,res){
+    if(req.url==="/"){
+        fs.readFile(path.join(__dirname,'/index.html'),(err,data)=>{
+            if(err){
+                res.statusCode=500;
+                res.setHeader=('Content-Type','text/plain');
+                res.end("Error loading file");
+            }
+            else{
+                res.statusCode=200;
+                res.setHeader=('Content-Type','text/html');
+                res.end(data);
+            }
+        })
+    res.statusCode=200;
+    res.setHeader('Content-Type','text/plain');
+    res.end("Hello From Server");
+     }
+    else if(req.url=="/about"){
+        res.statusCode=200;
+    res.setHeader('Content-Type','text/plain');
+    res.end("Hello From About serve");
+    }
     
-// }
+}
 
 app.listen(port,(err)=>{
     if(err){

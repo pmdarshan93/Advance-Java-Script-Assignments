@@ -1,0 +1,165 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body{
+    width:100vw;
+}
+
+.fontAntonio{
+    font-family: "Antonio", sans-serif;
+}
+
+.fontSpartan{
+    font-family: "League Spartan", sans-serif;
+}
+
+header{
+    width: 100%;
+    background-color: #070724;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem 3rem;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.159);
+}
+
+header ul{
+    display: flex;
+    width:50%;
+    justify-content: space-around;
+    align-items:center;
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+
+
+li{
+    list-style-type: none;
+}
+
+a{
+    color:rgba(222, 222, 222, 0.706) !important;
+    text-decoration: none;
+}
+
+
+.selectedPlanet{
+    border-bottom:1px solid white;
+}
+
+main{
+    padding:2.18em 10rem;
+    width:100%;
+    background-color: #070724;
+    background-image:url('../assets/background-stars.svg');
+    color: white;
+    display: flex;
+
+}
+
+#planetPictureParent{
+    width:65em;
+    padding:0em 10em;
+    background-size:auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items: end;
+}
+
+#geologyImage{
+padding:10em;
+background-size:200px;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+#planetContent{
+    width:35em;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+#planetName{
+    font-size: 80px;
+    text-align: center;
+}
+
+#planetDetails{
+    font-size:23px;
+    line-height: 30px;
+}
+
+#planetButtons{
+    display: flex;
+    flex-direction:column ;
+    gap: 20px;
+   
+}
+
+#planetButtons a{
+    padding:1rem;
+    font-size: large;
+    background:none;
+    color: white !important;
+    text-align: center;
+    font-weight: 600;
+    border:1px solid rgba(255, 255, 255, 0.454);
+    letter-spacing: 8px;
+    cursor: pointer;
+}
+
+#planetButtons a:hover{
+    border-radius: 2px solid green;
+    background-color:#38384F;
+}
+
+.buttonIndex{
+    float: left;
+    color: rgba(255, 255, 255, 0.607);
+    font-weight:900 ;
+}
+
+#emoji{
+    font-size: 30px;
+}
+
+#wikipediaLink{
+    font-size:x-large ;
+}
+
+footer{
+    width:100%;
+    background-color: #070724;
+    display: flex;
+    justify-content: space-between;
+    padding:3rem 10rem;
+}
+
+.insideFooter{
+    width:17%;
+    padding:2rem;
+    border: 1px solid rgba(255, 255, 255, 0.363);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    font-family: "Antonio", sans-serif;
+}
+
+.insideFooter p{
+    font-weight: 100;
+    letter-spacing: 1.2px;
+}
+
+.insideFooter h1{
+    font-size: 40px;
+}

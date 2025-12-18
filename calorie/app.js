@@ -1,10 +1,10 @@
 const path = require('path');
 const express = require('express');
 const { computeCaloriesBurned, estimateFromActivity, fetchCaloriesFromApi, getMetForActivity } = require('./utils/calories');
-console.log("Directory Name:", __dirname);
+// console.log("Directory Name:", __dirname);
 
-const users = ["Dhivya", "Priya", "Kumar", "Arun", "Meena"];
-//initialize express
+// const users = ["Dhivya", "Priya", "Kumar", "Arun", "Meena"];
+// //initialize express
 const app = express();
 
 // parse JSON bodies for API endpoints

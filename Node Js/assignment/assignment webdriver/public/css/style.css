@@ -65,13 +65,126 @@ footer div{
     line-height: 2rem;
 }
 
-main{
+main,#contactMain{
     display: flex;
-    justify-content: center;
-    padding:1%;
-    align-items: center;background:linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    align-items: center;
+    background:linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    flex-direction: column;
+    padding:2% 0% 7% 0%;
+}
+
+main{
+    padding:1% 0% 17% 0%;
 }
 
 #content{
-    margin:21% 5%;
+max-width:90vw;
+padding:4% 0px 2% 0%;
+}
+
+#api{
+    width:400px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: x-large;
+    padding:10% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    justify-content: space-around;
+}
+
+table,th,tr,td{
+    border:1px solid black;
+    border-collapse: collapse;
+    padding:2% 15px;
+    font-size: large;
+}
+
+#warning{
+    padding:0% 0% 2% 0%;
+    font-size: x-large;
+    color: Red;
+}
+
+.aboutDiv{
+    margin:1% auto;
+    line-height: 30px;
+    font-size:large ;
+    padding:4% 20% ;    
+    text-align: center;
+}
+
+.aboutDiv h1{
+    margin-bottom: 5%;
+    line-height: 35px;
+}
+
+.dim{
+    background-color: #f8f9fa;
+}
+
+#aboutValues{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#aboutValues div{
+width:30%;
+line-height: 30px;
+padding:5% 0%;
+background-color: white;
+box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+
+}
+
+#aboutValues div:hover,#api:hover{
+    box-shadow: 0 20px 20px rgba(0,0,0,0.1);
+    transition: transform 1s ease-out;
+    transform:translateY(-20px)
+}
+
+.aboutImage{
+    font-size: xx-large;
+    margin: 5%;
+}
+
+
+.contactIntro{
+    width: 600px;
+    text-align: center;
+    line-height: 25px;
+    font-size: large;
+}
+
+.contactIntro h1{
+    margin:4% 0%;
+}
+
+#contactForm{
+    background-color: white;
+    display: flex;
+    padding:2% 3%;
+    flex-direction: column;
+    gap:40px;
+    justify-content: space-evenly;
+    margin:2% 0%;
+}
+
+#contactForm input{
+    width:400px;
+    padding:10px;
+}
+
+#contactForm div{
+    margin:1% auto;
+}
+
+#submitBtn,#getNuthition{
+    padding:10px 50px;
+background-color:#007bff;    
+color: white;
+cursor: pointer;
 }

@@ -1,0 +1,17 @@
+<main>
+    <div id="planetPictureParent">
+        <div id="geologyImage"></div>
+    </div>
+    <div id="planetContent">
+        <div id="planetName" class="fontAntonio"><%= planet %></div>
+        <div id="planetDetails">
+            <%= planetContent %>
+        </div>
+        <div class="fontAntonio" id="wikipediaLink">Source: <a href=<%= wikipedia %>>Wikipedia  <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        <div id="planetButtons" class="fontAntonio">
+            <a href="/?para1=<%=planet%>&para2=overView" id="overview"><span class="buttonIndex">01</span> OVERVIEW</button>
+            <a  href="/?para1=<%=planet%>&para2=structure" id="structure"><span class="buttonIndex">02</span> STRUCTURE</button>
+            <a href="/?para1=<%=planet%>&para2=geology" id="geology"><span class="buttonIndex">03</span> SURFACE GEOLOGY</button>
+        </div>
+    </div>
+</main>
