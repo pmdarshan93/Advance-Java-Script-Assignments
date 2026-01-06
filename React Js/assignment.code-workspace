@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../Node Js/assignment"
+		},
+		{
+			"path": "../Node Js/class"
+		},
+		{
+			"path": "../Node Js/node_modules"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "class"
+	}
+}

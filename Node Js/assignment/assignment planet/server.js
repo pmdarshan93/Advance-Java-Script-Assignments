@@ -1,7 +1,6 @@
 const port=2007;
 const path=require('path');
 const express=require('express');
-const fs=require('fs')
 const {loadData}=require('./public/utils/util.js');
 
 const server=express();

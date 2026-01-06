@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f41a09c212.js" crossorigin="anonymous"></script>
+    <script src="/js/signup.js" defer></script>
+    <link rel="styleSheet" href="/css/signup.css">
+</head>
+<body>
+    <main>
+        <aside class="flexColumn">
+            <h1>LIGHT WEIGHT BABY</h1>
+            <h3>Nutrition Calculator</h3>
+            <p>
+               Your journey to a healthier, happier you starts today.
+            </p>
+        </aside>
+        <div  class="rightSide flexColumn">
+            <form id="signup" class="flexColumn">
+                <h1>SignUp</h1>
+                <div class="flexColumn">
+                    <label for="name">Enter your Name</label>
+                    <div class="inputParent">
+                        <i class="fa-solid fa-user"></i>
+                        <input name="name" id="username" maxlength="50" placeholder="Siva" required>
+                    </div>
+                </div>
+                <div class="flexColumn">
+                    <label for="email">Enter your Email</label>
+                    <div class="inputParent">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input name="email" id="useremail" type="email" placeholder="abc@gmail.com" required>
+                    </div>
+                    <div id="error" class="hide">* Email already exist *</div>
+                </div>
+                <div class="flexColumn">
+                    <label for="password">Password</label>
+                    <div class="inputParent">
+                        <i class="fa-solid fa-lock"></i>
+            <input name="password" id="password" type="password" minlength="8" maxlength="40" placeholder="Enter your password" required>
+                    </div>
+                </div>
+            <button type="submit">SignUp</button>
+            <a href="/login">Already a Customer? Login</a> 
+        </form>
+        </div>
+    </main>
+ 
+</body>
+</html>
