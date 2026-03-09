@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="srcipt.js" defer></script>
+    <style>
+        .resultDiv{
+            width : 100px;
+            height : 100px;
+            display: none;
+            background-color : orange
+        }
+        .question{
+            background-color: rgb(255, 209, 123);
+            /* width : 200px; */
+            height :100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            margin:50px 0px;
+        }
+        .result,.resultbtn,.resultul{
+            background-color: rgb(255, 209, 123);
+            width : 200px;
+            height :100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+        .resultbtn{
+            height : 40px;
+        }
+        .resultul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">Merge</div>
+    <div class="result" id="qn1"></div>
+    <div class="question">Noop Function</div>
+    <button class="resultbtn" id="qn2">Click Me</button>
+    <div id="parent">
+    <div class="question">Parse Html</div>
+    </div>
+    <div class="question">Parse XML</div>
+    <div class="result" id="qn4"></div>
+    <div class="question">Queue</div>
+    <div class="resultDiv"></div>
+    <div class="question">Data and remove Data</div>
+    <div class="result" id="qn5"></div>
+
+      
+</body>
+</html>

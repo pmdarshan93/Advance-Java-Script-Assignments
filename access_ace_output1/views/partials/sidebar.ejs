@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Ace</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="side_bar">
+            <div>
+                <img src="assests/logo.png" alt="img" id="logo">
+            </div>
+            <div class="side_bar_items">
+                <a href="/" class="side_bar_item <%= page === 'clients' ? 'active' : '' %>">Clients</a>
+                <a href="#" class="side_bar_item <%= page === 'dashboard' ? 'active' : '' %>">Dashboard</a>
+                <a href="#" class="side_bar_item <%= page === 'trash' ? 'active' : '' %>">Trash</a>
+                <a href="#" class="side_bar_item <%= page === 'log' ? 'active' : '' %>">Log</a>
+                <a href="/api-tester" class="side_bar_item api-tester-nav <%= page === 'api_tester' ? 'active' : '' %>">🧪 API Tester</a>
+            </div>
+        </aside>

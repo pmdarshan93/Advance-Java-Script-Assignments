@@ -2,7 +2,7 @@ const port = 2507;
 const path = require('path');
 const express = require('express');
 const { test } = require('./public/utils/utils')
-const { con } = require('./public/utils/dbConnection');
+
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv')
 const cookieparser = require('cookie-parser');
@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "public")))
 // to parse the request body as json and access throught req.body
 app.use(express.json());
 // to parse the form data 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));app.set("views", path.join(__dirname, 'public/views'))
 // to tell express to use ejs as view Engine
 app.set("view engine", "ejs");
 // to tell the express where the view files are stored

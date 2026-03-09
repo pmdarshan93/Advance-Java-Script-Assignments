@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoho API Tester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-logo">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <rect width="22" height="22" rx="5" fill="#00d4ff" fill-opacity="0.15"/>
+      <path d="M5 11h12M11 5v12" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="11" cy="11" r="3" stroke="#00d4ff" stroke-width="1.5"/>
+    </svg>
+    Zoho <span>API</span> Tester
+  </div>
+  <div class="topbar-divider"></div>
+  <span class="topbar-subtitle">REST Client</span>
+  <div class="topbar-right">
+    <div id="proxy-pill">
+      <span id="proxy-dot"></span>
+      <span id="proxy-label">Checking proxy…</span>
+    </div>
+    <span id="active-app-badge" style="display:none" class="badge">—</span>
+    <div class="spinner" id="global-spinner"></div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-search">
+      <div class="search-wrap">
+        <svg class="search-icon" width="13" height="13" viewBox="0 0 13 13" fill="none">
+          <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M8.5 8.5L11.5 11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Filter apps...">
+      </div>
+    </div>
+    <div class="app-list-wrap">
+      <ul class="app-list" id="app-list">
+        <li class="category-header">Sales</li>
+        <li class="app-item" data-app="crm"><span class="app-dot"></span>CRM</li>
+        <li class="app-item" data-app="bigin"><span class="app-dot"></span>Bigin</li>
+        <li class="app-item" data-app="salesiq"><span class="app-dot"></span>SalesIQ</li>
+
+        <li class="category-header">Finance</li>
+        <li class="app-item" data-app="books"><span class="app-dot"></span>Books</li>
+        <li class="app-item" data-app="expense"><span class="app-dot"></span>Expense</li>
+        <li class="app-item" data-app="inventory"><span class="app-dot"></span>Inventory</li>
+        <li class="app-item" data-app="subscriptions"><span class="app-dot"></span>Subscriptions</li>
+        <li class="app-item" data-app="payroll"><span class="app-dot"></span>Payroll</li>
+
+        <li class="category-header">HR & People</li>
+        <li class="app-item" data-app="people"><span class="app-dot"></span>People</li>
+        <li class="app-item" data-app="recruit"><span class="app-dot"></span>Recruit</li>
+
+        <li class="category-header">Marketing</li>
+        <li class="app-item" data-app="campaigns"><span class="app-dot"></span>Campaigns</li>
+        <li class="app-item" data-app="social"><span class="app-dot"></span>Social</li>
+        <li class="app-item" data-app="survey"><span class="app-dot"></span>Survey</li>
+
+        <li class="category-header">Productivity</li>
+        <li class="app-item" data-app="mail"><span class="app-dot"></span>Mail</li>
+        <li class="app-item" data-app="cliq"><span class="app-dot"></span>Cliq</li>
+        <li class="app-item" data-app="workdrive"><span class="app-dot"></span>WorkDrive</li>
+        <li class="app-item" data-app="meeting"><span class="app-dot"></span>Meeting</li>
+
+        <li class="category-header">Projects & Ops</li>
+        <li class="app-item" data-app="projects"><span class="app-dot"></span>Projects</li>
+        <li class="app-item" data-app="sprints"><span class="app-dot"></span>Sprints</li>
+        <li class="app-item" data-app="desk"><span class="app-dot"></span>Desk</li>
+        <li class="app-item" data-app="fsm"><span class="app-dot"></span>FSM</li>
+        <li class="app-item" data-app="creator"><span class="app-dot"></span>Creator</li>
+
+        <li class="category-header">Platform</li>
+        <li class="app-item" data-app="analytics"><span class="app-dot"></span>Analytics</li>
+        <li class="app-item" data-app="flow"><span class="app-dot"></span>Flow</li>
+
+        <li class="category-header">Others</li>
+        <li class="app-item" data-app="sign"><span class="app-dot"></span>Sign</li>
+        <li class="app-item" data-app="vault"><span class="app-dot"></span>Vault</li>
+        <li class="app-item" data-app="connect"><span class="app-dot"></span>Connect</li>
+        <li class="app-item" data-app="backstage"><span class="app-dot"></span>Backstage</li>
+
+        <li class="category-header">OAuth</li>
+        <li class="app-item" data-app="oauth"><span class="app-dot"></span>OAuth 2.0</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- REQUEST BAR -->
+    <div class="request-bar">
+      <div class="endpoint-select-wrap">
+        <select id="api-samples">
+          <option disabled selected>← Select an app first</option>
+        </select>
+      </div>
+      <div class="url-bar">
+        <div class="method-badge" id="method-badge">—</div>
+        <input type="text" id="url" placeholder="https://..." spellcheck="false">
+        <button class="send-btn" id="send-btn">SEND ▶</button>
+      </div>
+    </div>
+
+    <!-- SCOPE BAR -->
+    <div class="scope-bar">
+      <span class="scope-label">SCOPE</span>
+      <span class="scope-value" id="scope-display">—</span>
+      <span class="proxy-label">via proxy → <span id="proxy-url-label">http://localhost:3001</span></span>
+    </div>
+
+    <!-- PANELS -->
+    <div class="panels" id="panels">
+
+      <!-- LEFT: Request Editor -->
+      <div class="panel" id="left-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-pane="params">Params</button>
+          <button class="panel-tab" data-pane="headers">Headers</button>
+          <button class="panel-tab" data-pane="body">Body</button>
+        </div>
+
+        <div class="tab-pane active" id="pane-params">
+          <div class="editor-wrap">
+            <textarea class="code-input" id="params-input" placeholder='{ "page": 1, "per_page": 200 }'></textarea>
+            <button class="copy-btn" data-target="params-input">copy</button>
+          </div>
+        </div>
+        <div class="tab-pane" id="pane-headers">
+          <div class="editor-wrap">
+            <textarea class="code-input" id="headers-input" placeholder='{ "Authorization": "Zoho-oauthtoken <token>" }'></textarea>
+            <button class="copy-btn" data-target="headers-input">copy</button>
+          </div>
+        </div>
+        <div class="tab-pane" id="pane-body">
+          <div class="editor-wrap">
+            <textarea class="code-input" id="body-input" placeholder='{ "data": [...] }'></textarea>
+            <button class="copy-btn" data-target="body-input">copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resizer" id="resizer"></div>
+
+      <!-- RIGHT: Response -->
+      <div class="panel" id="right-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-pane="response-body-pane">Response</button>
+          <button class="panel-tab" data-pane="response-headers-pane">Resp. Headers</button>
+        </div>
+
+        <div class="tab-pane active" id="pane-response-body-pane">
+          <div class="response-meta" id="response-meta" style="display:none">
+            <span class="status-chip" id="status-chip"></span>
+            <span class="time-chip" id="time-chip"></span>
+            <span class="size-chip" id="size-chip"></span>
+            <button class="copy-btn" data-target="response-output" style="position:static;opacity:1;margin-left:auto;font-size:10px;padding:2px 8px;">copy</button>
+          </div>
+          <div class="response-body">
+            <div class="response-placeholder" id="response-placeholder">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="10" width="28" height="22" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M13 17h14M13 22h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <p>Hit <strong style="color:var(--accent)">SEND</strong> to execute the request</p>
+            </div>
+            <pre id="response-output" style="display:none"></pre>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="pane-response-headers-pane">
+          <div class="response-body">
+            <pre id="response-headers-output" style="font-family:var(--mono);font-size:12px;line-height:1.8;color:var(--text-dim);padding:14px 16px;"></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="statusbar">
+      <span><span class="statusbar-dot"></span>Ready</span>
+      <span id="status-app">No app selected</span>
+      <span id="status-method" style="margin-left:auto;color:var(--text-dim);"></span>
+    </div>
+
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

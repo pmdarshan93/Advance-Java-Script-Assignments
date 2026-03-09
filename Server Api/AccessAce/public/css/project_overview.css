@@ -1,0 +1,172 @@
+.project-page {
+    margin-left: 270px; 
+    width: 85%;
+    padding: 3rem;
+    color: #fff;
+  }
+  
+  .project-header {
+    margin-bottom: 40px;
+  }
+  
+  .back-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .header-main {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #back-icon {
+    display: flex;
+    gap: 20px;
+  }
+  
+  #back-icon i {
+      margin-top: 14px;
+      margin-right: 10px;
+      font-size: 1.4rem;
+  }
+  
+  .project-description {
+    color: #aaa;
+    margin-top: 8px;
+  }
+  
+  .project-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    background-color: var(--container-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .edit-btn:hover {
+    color: var(--button-color);
+  }
+  .delete-btn:hover {
+    color: rgb(240, 47, 47);
+  }
+  
+  .card {
+    background: var(--container-color);
+    padding: 2.8rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 53%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  input[readonly] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: monospace;
+  }
+  
+  .copy-field {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .token-input {
+    flex: 1;
+  }
+  form{
+    padding: 3rem;
+    width: 500px;
+    height: 580px;
+  }
+  .icon-btn {
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    color: #94a3b8;
+  }
+  
+  .icon-btn:hover {
+      color: white;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal.active {
+    display: flex;
+  }
+  
+  #form_container1 {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 500px;
+    color: white;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+  }
+  
+  .form-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5.3rem;
+  }
+  
+  #edit_project_form button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #edit_project_form button[type="submit"] {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  #cancel_edit_btn {
+    background: #555;
+    color: white;
+  }
