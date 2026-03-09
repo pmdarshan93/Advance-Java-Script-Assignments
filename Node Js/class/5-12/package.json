@@ -1,5 +1,0 @@
-{ "type":"module",
-  "dependencies": {
-    "yargs": "^18.0.0"
-  }
-}
