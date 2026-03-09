@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web RTC</title>
+    <!-- <style rel="stylesheet" href="css/style.css"></style> -->
+        
+    
+</head>
+<body>
+    <h1>Welcome to world of webRTC</h1>
+    <input type="text" id="username" placeholder="Enter your name to avoid anonymous"/>
+    <video id="localVideo" autoplay muted>   </video>
+    <video id="remoteVideo" autoplay muted>  </video>
+    <div id="remote"></div>
+    <button id="startCall">Start Call</button>
+    <button id="endCall">End Call</button>
+    <button id="stop">Stop streaming</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/client.js"></script>
+</body>
+</html>
+
+<!-- <video id="screenVideo" autoplay></video> -->
+    <!-- <button id="startShare">Start Share</button>
+    <button id="stopShare">Stop Share</button> -->

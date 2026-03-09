@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        let user=<%-JSON.stringify(user)%>
+    </script>
+    <script src="/js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/f41a09c212.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <%-include('partials/header')%>
+    <main>
+        <div id="content">
+            <form id="userInput">
+                <div>CALCULATE THE NUTRITION</div>
+                <input id="food">
+                <div class="flex">
+                    <input type="submit" id="getNutrition">
+                    <div id="favouriteIcon" class="hide">
+                        <div id="unlike" class="hide">
+                        <i class="fa-solid fa-heart" id="unlike"></i>
+                        </div>
+                        <div id="like">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+              
+            </form>
+        </div>
+        <div id="warning"></div>
+        <div id="loadingMain" class="hidden">
+            <div class="loading"></div>
+        </div>
+
+        <div class="tableWrap">
+        <table id="result" class="hide">
+            <thead id="head">
+                <tr>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>Serving size  (g)</th>
+                <th>Fat Total  (g)</th>
+                <th>Saturated fat (g)</th>
+                <th>Protein  (g)</th>
+                <th>Sodium  (mg)</th>
+                <th>Potassium  (mg)</th>
+                <th>Cholesterol  (mg)</th>
+                <th>Carbohydrates  (g)</th>
+                <th>Fiber  (g)</th>
+                <th>Sugar  (g)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+    </main>
+    <%-include('partials/footer')%>
+</body>
+
+
+</html>

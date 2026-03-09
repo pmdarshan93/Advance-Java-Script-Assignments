@@ -1,0 +1,73 @@
+<%- include('partials/sidebar', { page: 'clients' }) %>
+        <div id="clients">
+            <header>
+                <div>
+                    <h1>
+                        Clients
+                    </h1>
+                    <p>Manage your clients and their access credentials</p>
+                </div>
+                <button id="add_new_client">Add New Client</button>
+            </header>
+            <div id="client_container"></div>
+        </div>
+
+        
+        <div id="client_info">
+            <a class="back-btn">← Back to client</a>
+
+            <div class="header">
+                <div>
+                    <h1></h1>
+                    <p></p>
+                </div>
+                <div>
+                    <button>Activity Log</button>
+                    <button>Edit Project</button>
+                </div>
+            </div>
+
+            <!-- Client Credentials Section -->
+            <div class="credentials-card">
+                <h3>Client Credentials</h3>
+                <div class="credentials-grid">
+                    <div>
+                        <label>Client ID</label>
+                        <p id="client-id"></p>
+                    </div>
+                    <div>
+                        <label>Client Secret</label>
+                        <p id="client-secret"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="projects-card">
+                <h3>Projects</h3>
+                <div id="projects-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="form_container">
+        <form id="add_client_form">
+            <label for="name">Client name</label>
+            <input type="text" id="client_name_field" required>
+            <label for="description">Description</label>
+            <textarea name="description" id="client_desc_field" required cols="30" rows="10"></textarea>
+            <label for="client_id">Client Id</label>
+            <input type="text" id="client_id_field" required>
+            <label for="client_secret">Client Secret</label>
+            <input type="text" id="client_secret_field" required>
+            <div>
+                <button id="add_btn" type="submit">Add Client</button>
+                <button class="cancel" type="button">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

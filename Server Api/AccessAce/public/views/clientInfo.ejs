@@ -1,0 +1,66 @@
+<%-include('partials/sidebar')%>
+<%- include('partials/chatbot')%>
+
+<div id="client_info">
+    <a class="back-btn">← Back to client</a>
+
+    <div class="header">
+        <div>
+            <h1></h1>
+            <p></p>
+        </div>
+        <div class="header-actions">
+            <button class="btn log">Activity Log</button>
+            <button class="btn edit_client_btn">Edit Client</button>
+        </div>
+    </div>
+
+    <div class="credentials-card card">
+        <h3>Client Credentials</h3>
+        <div class="credentials-grid">
+            <div>
+                <label>Client ID</label>
+                <div class="cred-field">
+                    <p id="client-id"></p>
+                    <button class="iconBtn" id="toggle-client-id">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <label>Client Secret</label>
+                <div class="cred-field">
+                    <p id="client-secret"></p>
+                    <button class="iconBtn" id="toggle-client-secret">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects-card card">
+        <h3>Projects</h3>
+        <div id="projects-container"></div>
+    </div>
+</div>
+
+<div id="edit_form_container">
+    <form id="edit_client_form">
+        <label for="edit_client_name_field">Client name</label>
+        <input type="text" id="edit_client_name_field" required>
+        <label for="edit_client_desc_field">Description</label>
+        <textarea name="description" id="edit_client_desc_field" required cols="30" rows="10"></textarea>
+        <div>
+            <button id="edit_btn" type="submit">Update Client</button>
+            <button class="cancel" type="button" onclick="closeEditForm()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+    const currentClientId = "<%= clientId %>";
+    console.log("Client ID:", currentClientId);
+</script>
+</html>

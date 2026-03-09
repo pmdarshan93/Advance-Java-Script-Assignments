@@ -1,0 +1,39 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.parent{
+    width:100vw;
+    min-height: 100vh;
+    background:linear-gradient(#4776E6,#8E54E9) ;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.question{
+    background-color: white;
+    width:90%;
+    padding:4%;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 50px;
+    font-size: large;
+}
+
+button,input{
+    font-size: large;
+    padding: 0.1% 0.3%;
+}
+
+label{
+    font-size: x-large;
+}
+
+#button:not(:disabled){
+    background-color: rgb(143, 212, 143);
+}

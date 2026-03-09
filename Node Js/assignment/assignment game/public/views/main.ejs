@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/f41a09c212.js" crossorigin="anonymous"></script>
+    <script src="socket.io/socket.io.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/Assignment.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <center>STONE PAPER SCISSOR VERSION 2.O</center> </h1>
+        </header>
+        <div id="menu">
+            <div id="vsComputer" class="menuOption">
+                <i class="fa-solid fa-robot"></i>
+                <h2>Player VS Computer</h2>
+            </div>
+            <div id="vsPlayer" class="menuOption">
+                <i class="fa-solid fa-person"></i>
+                <h2>Player VS Player</h2>
+                <div class="room">
+                <form id="joinRoom">
+                    <label for="joinRoom">Enter Room ID to Join</label>
+                    <input name="joinRoom" id="joinRoomId" required>
+                    <button type="submit">Submit</button>
+                </form>
+                </div>
+                <div class="room">
+                    <form id="createRoom">
+                        <label>Create New Room</label>
+                        <button type="submit">Create</button>
+                        <div id="ownRoomId"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div id="gameContent" class="hide">
+    <div id="parent">
+    <div id="rock" class="option rock1"></div>    
+    <div id="paper" class="option paper1"></div>
+    <div id="scissor" class="option scissor1"></div>
+    <div id="lizard" class="option lizard1"></div>
+    <div id="spock" class="option spock1"></div>
+    </div>
+    <div class="result">
+        <div>
+            <h2>Player</h2>
+            <div id="playerChoice" class="option"></div>
+        </div>
+        <div id="showResult"></div>
+        <div><h2>Computer</h2>    
+        <div id="computerChoice" class="option"></div>
+        </div>
+
+    </div>
+    <div class="result resulttext">
+        <div id="computerScore" class="resultbox">Opponent Score : 0</div>
+        <div id="playerScore" class="resultbox">Player Score : 0</div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

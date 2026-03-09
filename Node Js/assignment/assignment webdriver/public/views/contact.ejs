@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <script>
+        let user=<%-JSON.stringify(user)%>
+    </script>
+    <script src="/js/contact.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/f41a09c212.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('partials/header')%>
+    <div id="contactMain">
+        <div class="contactIntro">
+            <h1>Get in Touch</h1>
+            <p>Have a question or feedback? We'd love to hear from you. Fill out the form below and our team will get back to you.</p>
+        </div>
+       <form id="contactForm">
+        <label for="contactNo">Enter your Mobile Number</label>
+        <input name="contactNo" id="phone" type="tel" minlength="10" maxlength="10" required>
+        <label for="message">Leave your Message</label>
+        <textarea name="message" id="message" style="height:250px" required></textarea>
+        <div><button type="submit" id="submitBtn">Submit</button></div>
+       </form>
+    </div>
+    <%-include('partials/footer')%>
+</body>
+</html>

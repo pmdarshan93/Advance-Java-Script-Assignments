@@ -1,0 +1,40 @@
+<%- include('partials/sidebar') %>
+<%- include('partials/chatbot')%>
+
+<div class="log-page">
+    <div class="header">
+        <h2>Audit Log</h2>
+        <p>Track all actions and changes across your projects here.</p>
+    </div>
+
+    <div class="log-section">
+        <% if (result && result.length > 0) { %> 
+            <div class="log-header">
+                <div class="log-heading">Action</div>
+                <div class="log-heading">Time</div>
+                
+                <div class="log-heading">Client Name</div>
+                <div class="log-heading">Project Name</div>
+            </div>
+
+            <div class="log-entries">
+                <% result.forEach(log => { %>
+                    <div class="log-entry">
+                        <div class="log-detail"><%= log.action %></div>
+                        <div class="log-detail"><%= log.time %></div>
+                        <div class="log-detail"><%= log.client_name || '--' %></div>
+                        <div class="log-detail"><%= log.project_name || '--' %></div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No logs available.</p>
+        <% } %>
+    </div>
+</div>
+
+<!-- Link to external CSS for log page styling -->
+<link rel="stylesheet" href="/css/log.css">
+
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Your Name</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <div class="logo">Portfolio</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-desktop">
+                    <button onclick="scrollToSection('home')" class="nav-link">Home</button>
+                    <button onclick="scrollToSection('skills')" class="nav-link">Skills</button>
+                    <button onclick="scrollToSection('projects')" class="nav-link">Projects</button>
+                    <button onclick="scrollToSection('experience')" class="nav-link">Experience</button>
+                    <button onclick="scrollToSection('about')" class="nav-link">About</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="menuBtn">
+                    <svg class="menu-icon" id="menuIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg class="menu-icon hidden" id="closeIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="nav-mobile" id="mobileMenu">
+                <button onclick="scrollToSection('home')" class="nav-mobile-link">Home</button>
+                <button onclick="scrollToSection('skills')" class="nav-mobile-link">Skills</button>
+                <button onclick="scrollToSection('projects')" class="nav-mobile-link">Projects</button>
+                <button onclick="scrollToSection('experience')" class="nav-mobile-link">Experience</button>
+                <button onclick="scrollToSection('about')" class="nav-mobile-link">About</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <!-- Animated background blobs -->
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-grid">
+                    <!-- Profile Image -->
+                    <div class="hero-image-wrapper animate-on-scroll">
+                        <div class="hero-image-container">
+                            <div class="hero-image-glow"></div>
+                            <!-- Replace with your actual image path -->
+                            <img src="../portfolio.jpeg" alt="Profile" class="hero-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Text Content -->
+                    <div class="hero-content">
+                        <h1 class="hero-title animate-on-scroll">
+                            Hi, I'm <span class="hero-name">Your Name</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle animate-on-scroll">
+                            Full Stack Software Engineer
+                        </p>
+                        
+                        <p class="hero-description animate-on-scroll">
+                            Passionate about building exceptional digital experiences. 
+                            Specializing in modern web technologies and clean, scalable code.
+                        </p>
+                        
+                        <div class="hero-social animate-on-scroll">
+                            <a href="#" class="social-icon">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-buttons animate-on-scroll">
+                            <a href="#projects" class="btn btn-primary">View Projects</a>
+                            <a href="#about" class="btn btn-secondary">About Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <svg class="bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Skills & Expertise</h2>
+                    <p class="section-description">
+                        A comprehensive set of technical skills and technologies I work with
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-amber">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Frontend Development</h3>
+                        <p class="skill-description">React, TypeScript, Next.js, Tailwind CSS</p>
+                    </div>
+                    
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-orange">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Backend Development</h3>
+                        <p class="skill-description">Node.js, Python, Express, REST APIs</p>
+                    </div>
+                    
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-yellow">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Databases</h3>
+                        <p class="skill-description">PostgreSQL, MongoDB, Redis, SQL</p>
+                    </div>
+                    
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-amber">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">UI/UX Design</h3>
+                        <p class="skill-description">Figma, Responsive Design, Accessibility</p>
+                    </div>
+                    
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-orange">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">DevOps & Tools</h3>
+                        <p class="skill-description">Git, Docker, CI/CD, AWS</p>
+                    </div>
+                    
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon skill-icon-yellow">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title">Mobile Development</h3>
+                        <p class="skill-description">React Native, Progressive Web Apps</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section section-gray">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        A selection of projects that showcase my skills and experience
+                    </p>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop" alt="E-Commerce Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <p class="project-description">
+                                A full-stack e-commerce application with payment integration, inventory management, and admin dashboard.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop" alt="Task Management App">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p class="project-description">
+                                Collaborative task management tool with real-time updates, drag-and-drop interface, and team features.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">WebSocket</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Social Media Dashboard">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Social Media Dashboard</h3>
+                            <p class="project-description">
+                                Analytics dashboard for social media metrics with beautiful charts and data visualization.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">Chart.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop" alt="Weather Forecast App">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Weather Forecast App</h3>
+                            <p class="project-description">
+                                Real-time weather application with location-based forecasts and interactive maps.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Redux</span>
+                                <span class="tech-tag">OpenWeather API</span>
+                                <span class="tech-tag">Mapbox</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop" alt="Fitness Tracking Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Fitness Tracking Platform</h3>
+                            <p class="project-description">
+                                Comprehensive fitness tracker with workout plans, progress tracking, and nutrition logging.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                                <span class="tech-tag">Charts</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop" alt="Blog CMS">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Blog CMS</h3>
+                            <p class="project-description">
+                                Content management system for blogs with rich text editor, SEO optimization, and analytics.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Prisma</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">TailwindCSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>Code</span>
+                                </a>
+                                <a href="#" class="project-link project-link-demo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">Work Experience</h2>
+                    <p class="section-description">
+                        My professional journey and key accomplishments
+                    </p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <!-- Experience 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="experience-company">
+                                <svg class="company-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Tech Company Inc.</span>
+                            </div>
+                            <h3 class="experience-title">Senior Software Engineer</h3>
+                            <div class="experience-period">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Jan 2024 - Present</span>
+                            </div>
+                            <p class="experience-description">
+                                Leading development of scalable web applications using React and Node.js. Mentoring junior developers and implementing best practices.
+                            </p>
+                            <ul class="experience-achievements">
+                                <li>Improved application performance by 40%</li>
+                                <li>Led team of 5 developers on major product launch</li>
+                                <li>Implemented CI/CD pipeline reducing deployment time by 60%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="timeline-item timeline-item-right animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="experience-company">
+                                <svg class="company-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>StartUp Solutions</span>
+                            </div>
+                            <h3 class="experience-title">Full Stack Developer</h3>
+                            <div class="experience-period">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Jun 2022 - Dec 2023</span>
+                            </div>
+                            <p class="experience-description">
+                                Developed and maintained multiple client-facing applications. Worked with cross-functional teams to deliver high-quality products.
+                            </p>
+                            <ul class="experience-achievements">
+                                <li>Built 3 production applications from scratch</li>
+                                <li>Reduced API response time by 50%</li>
+                                <li>Implemented automated testing increasing code coverage to 85%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="experience-company">
+                                <svg class="company-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Digital Agency Co.</span>
+                            </div>
+                            <h3 class="experience-title">Junior Developer</h3>
+                            <div class="experience-period">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Jan 2021 - May 2022</span>
+                            </div>
+                            <p class="experience-description">
+                                Assisted in development of web applications and websites. Collaborated with designers to implement pixel-perfect UIs.
+                            </p>
+                            <ul class="experience-achievements">
+                                <li>Delivered 15+ client projects on time</li>
+                                <li>Learned and applied modern web technologies</li>
+                                <li>Contributed to open-source projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 4 -->
+                    <div class="timeline-item timeline-item-right animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="experience-company">
+                                <svg class="company-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Innovation Labs</span>
+                            </div>
+                            <h3 class="experience-title">Software Engineering Intern</h3>
+                            <div class="experience-period">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Jun 2020 - Dec 2020</span>
+                            </div>
+                            <p class="experience-description">
+                                Worked on internal tools and automation scripts. Gained hands-on experience with full-stack development.
+                            </p>
+                            <ul class="experience-achievements">
+                                <li>Automated manual processes saving 10 hours/week</li>
+                                <li>Built internal dashboard for team metrics</li>
+                                <li>Participated in code reviews and agile ceremonies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section section-gray">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-description">
+                        Get to know more about my background and interests
+                    </p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-image animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=600&h=700&fit=crop" alt="About">
+                    </div>
+                    
+                    <div class="about-content">
+                        <h3 class="about-title animate-on-scroll">Hello! I'm a Software Engineer</h3>
+                        
+                        <div class="about-text">
+                            <p class="animate-on-scroll">
+                                I'm a passionate software engineer with over 4 years of experience building web applications. I specialize in creating elegant solutions to complex problems and love working with modern technologies.
+                            </p>
+                            <p class="animate-on-scroll">
+                                My journey in tech started with curiosity about how things work, and it has evolved into a career where I get to build products that make a difference. I'm constantly learning and staying up-to-date with the latest industry trends.
+                            </p>
+                            <p class="animate-on-scroll">
+                                When I'm not coding, you'll find me contributing to open-source projects, writing technical blog posts, or exploring new frameworks and tools. I believe in writing clean, maintainable code and following best practices.
+                            </p>
+                        </div>
+                        
+                        <h4 class="about-interests-title animate-on-scroll">What I Love</h4>
+                        <div class="about-interests">
+                            <div class="interest-item animate-on-scroll">
+                                <div class="interest-icon interest-icon-amber">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                    </svg>
+                                </div>
+                                <span>Coffee Enthusiast</span>
+                            </div>
+                            <div class="interest-item animate-on-scroll">
+                                <div class="interest-icon interest-icon-orange">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                                <span>Continuous Learning</span>
+                            </div>
+                            <div class="interest-item animate-on-scroll">
+                                <div class="interest-icon interest-icon-yellow">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <span>Problem Solving</span>
+                            </div>
+                            <div class="interest-item animate-on-scroll">
+                                <div class="interest-icon interest-icon-amber">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </div>
+                                <span>Open Source</span>
+                            </div>
+                        </div>
+                        
+                        <div class="about-buttons animate-on-scroll">
+                            <span class="btn btn-primary">Available for hire</span>
+                            <a href="#" class="btn btn-secondary">Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Portfolio</h3>
+                    <p class="footer-text">
+                        Building amazing web experiences with modern technologies and best practices.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact">
+                        <p class="footer-email">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span>your.email@example.com</span>
+                        </p>
+                        <div class="footer-social">
+                            <a href="#">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    <span>Made with</span>
+                    <svg class="heart-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <span>© 2026 Your Name. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

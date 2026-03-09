@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        let user=<%-JSON.stringify(user)%>
+    </script>
+    <script src="js/favourite.js" defer></script>
+    <script src="https://kit.fontawesome.com/f41a09c212.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('partials/header')%>
+
+    <main>
+        <div id="content">
+            <div id="userInput">
+                <label for="favouriteList">Select the food</label>
+                <select name="favouriteList" id="favouriteList">
+                    <option value="" disabled selected>Select food</option>
+            </select>
+            </div>
+        </div>
+        <div id="loadingMain" class="hidden">
+            <div class="loading"></div>
+        </div>
+        <div class="tableWrap favourite">
+        <table id="result" class="hide">
+            <thead id="head">
+                <tr>
+                        <th>Name</th>
+                        <th>Calories</th>
+                        <th>Serving size  (g)</th>
+                        <th>Fat Total  (g)</th>
+                        <th>Saturated fat (g)</th>
+                        <th>Protein  (g)</th>
+                        <th>Sodium  (mg)</th>
+                        <th>Potassium  (mg)</th>
+                        <th>Cholesterol  (mg)</th>
+                        <th>Carbohydrates  (g)</th>
+                        <th>Fiber  (g)</th>
+                        <th>Sugar  (g)</th>
+                    <tbody id="tableBody"></tbody>
+                </tr>
+            </thead>
+        </table>
+        </div>
+    </main>
+    <%-include('partials/footer')%>
+</body>
+</html>

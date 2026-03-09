@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+*.zip
+
+Node Js/AccessTokenGenerator/
+Node Js/assignment/assignment001/
+Server Api/AccessTokenGenerator/
+Server Api/webapp/
+Server Api/webapp_new/

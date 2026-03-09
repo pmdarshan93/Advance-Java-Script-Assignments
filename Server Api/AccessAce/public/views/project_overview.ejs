@@ -1,0 +1,116 @@
+<%- include('partials/sidebar') %>
+<%- include('partials/chatbot')%>
+
+<div class="project-page">
+
+  <div class="project-header">
+    <div class="header-main">
+
+      <div id="back-icon">
+        <div>
+          <a href="/project?clientId=<%= project.client_id %>" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+        <div>
+          <h1><%= project.name %></h1>
+          <p class="project-description"><%= project.description %></p>
+        </div>
+      </div>
+
+      <div class="project-actions">
+        <button class="edit-btn" data-id="<%= project.project_id %>">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button class="delete-btn" data-id="<%= project.project_id %>">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Token Credentials</h2>
+
+    <!-- Access Token -->
+    <div class="form-group">
+      <label>Access Token</label>
+      <div class="copy-field">
+        <input type="text"
+               value="<%= project.access_token %>"
+               data-token="<%= project.access_token %>"
+               readonly
+               class="token-input">
+
+        <button class="icon-btn eye-btn">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+
+        <button class="icon-btn copy-btn">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+
+        <button class="icon-btn regenerate-btn"
+                data-id="<%= project.project_id %>">
+          <i class="fa-solid fa-rotate"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Refresh Token</label>
+      <div class="copy-field">
+        <input type="text"
+               value="<%= project.refresh_token %>"
+               data-token="<%= project.refresh_token %>"
+               readonly
+               class="token-input">
+
+        <button class="icon-btn eye-btn">
+          <i class="fa-regular fa-eye"></i>
+        </button>
+
+        <button class="icon-btn copy-btn">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Created Time</label>
+      <input type="text" value="<%= project.created_time %>" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>Scopes</label>
+      <input type="text" value="<%= project.scopes %>" id="scopes" readonly>
+    </div>
+
+  </div>
+
+  <div id="editModal" class="modal">
+    
+        <form id="edit_project_form">
+            <label>Project name</label>
+            <input type="text" id="edit_project_name" required>
+
+            <label>Description</label>
+            <textarea id="edit_project_desc" required rows="6"></textarea>
+
+            <label>Scopes</label>
+            <input type="text" id="edit_scopes" required>
+
+            <p>Redirect uri should be : <b>http://localhost:2500/getcode</b></p>
+
+            <div class="form-buttons">
+                <button type="submit">Save</button>
+                <button type="button" id="cancel_edit_btn">Cancel</button>
+            </div>
+        </form>
+  </div>
+</div>
+<script src="/js/project_overview.js"></script>
+<link rel="stylesheet" href="/css/project_overview.css">
+</body>
+</html>
