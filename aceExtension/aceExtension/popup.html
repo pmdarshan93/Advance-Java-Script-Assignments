@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ACE — Token Manager</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-badge"><img src="logo1.png" style="width: 50px;height: 50px;"></span>
+            <div class="logo-text">
+                <span class="logo-title">ACCESSACE</span>
+                <!-- <span class="logo-sub">Zoho OAuth 2.0</span> -->
+            </div>
+        </div>
+        <div class="header-actions">
+            <!-- <button class="btn-icon" id="clearAll" title="Clear all">🗑</button> -->
+            <button class="btn-primary" id="addToken">＋ New Token</button>
+        </div>
+    </header>
+
+    <div class="overlay hidden" id="formOverlay">
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-title">New Token</span>
+                <button class="btn-icon" id="closeForm" style="border:none;background:transparent;color:#888;font-size:16px;cursor:pointer;">✕</button>
+            </div>
+            <div class="panel-body">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="e.g. Cliq Webhook Dev" autocomplete="off" />
+                </div>
+                <div class="field">
+                    <label for="clientId">Client ID</label>
+                    <input type="text" id="clientId" value="1000.LV0B7RQNYHIBVNV1WHPAI3SYFAP11R" autocomplete="off" />
+                </div>
+                <div class="field">
+                    <label for="clientSecret">Client Secret</label>
+                    <input type="password" id="clientSecret" value="99bbd10d439131cc2e7a02f458fb2d9e185775788b" autocomplete="off" />
+                    <button class="toggle-btn" id="toggleSecret"><i class="fa-regular fa-eye"></i></button>
+                </div>
+                <div class="field">
+                    <label for="scope">Scope</label>
+                    <input type="text" id="scope" value="ZohoCliq.webhooks.CREATE" autocomplete="off" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn-generate" id="generate" >Generate Token</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="infoOverlay">
+        <div class="panel">
+            <div class="info-header">
+                <div class="info-title-row">
+                    <span class="info-name" id="infoName">Token Name</span>
+                    <span class="status-badge valid" id="infoBadge">Active</span>
+                </div>
+                <button class="btn-icon" id="infoClose" style="border:none;background:transparent;color:#888;font-size:16px;cursor:pointer;">✕</button>
+            </div>
+            <div class="info-body">
+                <div class="info-row">
+                    <span class="info-key">Access Token</span>
+                    <span class="info-val" id="infoToken">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-key">Refresh Token</span>
+                    <span class="info-val" id="infoRefresh">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-key">Client ID</span>
+                    <span class="info-val" id="infoClientId">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-key">Client Secret</span>
+                    <span class="info-val" id="infoClientSecret">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-key">Scope</span>
+                    <span class="info-val" id="infoScope">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-key">Generated</span>
+                    <span class="info-val" id="infoCreated">—</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <ul class="token-list" id="token_list">
+            <!-- <li class="token-tile">
+                <div class="tile-top">
+                    <span class="tile-dot valid"></span>
+                    <span class="tile-name">Cliq Webhook Dev</span>
+                    <button class="tile-info" title="Details">ℹ</button>
+                </div>
+                <div class="tile-token">1000.abc123def456xyz...</div>
+                <div class="tile-scope">ZohoCliq.webhooks.CREATE</div>
+                <div class="tile-actions">
+                    <button class="tile-btn copy" id="copy">📋 Copy</button>
+                    <button class="tile-btn regen">↻ Regen</button>
+                    <button class="tile-btn delete">✕ Del</button>
+                </div>
+            </li>
+            
+            <li class="token-tile">
+                <div class="tile-top">
+                    <span class="tile-dot valid"></span>
+                    <span class="tile-name">Cliq Webhook Dev</span>
+                    <button class="tile-info" title="Details">ℹ</button>
+                </div>
+                <div class="tile-token">1000.abc123def456xyz...</div>
+                <div class="tile-scope">ZohoCliq.webhooks.CREATE</div>
+                <div class="tile-actions">
+                    <button class="tile-btn copy" id="copy">📋 Copy</button>
+                    <button class="tile-btn regen">↻ Regen</button>
+                    <button class="tile-btn delete">✕ Del</button>
+                </div>
+            </li> -->
+        </ul>
+    </main>
+
+    <div class="message hidden" id="message"></div>
+
+</body>
+
+</html>

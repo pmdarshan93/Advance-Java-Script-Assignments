@@ -1,10 +1,11 @@
 let sidebar = document.querySelector(".sidebar");
 let skillsParent = document.querySelector(".skillsParent")
 let projectParent = document.querySelector(".projectParent");
-let timeline = document.querySelector("#timeline");
 
 function toggleSidebar() {
-    sidebar.classList.contains("hide") ? sidebar.classList.remove('hide') : sidebar.classList.add('hide');
+    
+    sidebar.classList.toggle("hide");
+
 }
 
 let skills = [
@@ -49,12 +50,12 @@ let projects = [
     { img: "images/passwor.png", title: "Password Management", description: "Password Mangement system using File", projectTech: ["Java", "File"], code: "https://github.com/pmdarshan93/Zs-Vault", demo: "", category: ["java"] },
     { img: "images/stone.png", title: "Stone paper Scissor", description: "Stone paper scissor game", projectTech: ["Html", "Css", "JS"], code: "", demo: "https://darshanpm-5874l0qu-8443.zcodecorp.in/Js%20Assignment/Assignment%20014/assignment14.html", category: ["js"] },
     { img: "images/bank.png", title: "Bank", description: "Oops and storage in js", projectTech: ["Html", "Css", "JS"], code: "", demo: "https://darshanpm-5874l0qu-8443.zcodecorp.in/AJAX%20Assignment/assignment004/", category: ["js"] },
-    { img: "images/grid.png", title: "Web Page", description: "Recreation of web page using grid", projectTech: ["Html", "Css"], code: "", demo: "https://darshanpm-5874l0qu-8443.zcodecorp.in/ASSIGNMENTS/ASSIGNMENT17/", category: ["html"] },
+    { img: "images/grid.png", title: "Web Page", description: "Recreation of web page using grid", projectTech: ["Html", "Css"], code: "", demo: "https://darshanpm-5874l0qu-8443.zcodecorp.in/ASSIGNMENTS/ASSIGNMENT17/17.html", category: ["html"] },
     { img: "images/website1.png", title: "Web Page", description: "Recreation of web page ", projectTech: ["Html", "Css"], code: "", demo: "https://darshanpm-5874l0qu-8443.zcodecorp.in/ASSIGNMENTS/ASSIGNMENT13/13.html", category: ["html"] },
     { img: "images/", title: "School Management", description: "A basic school management system", projectTech: ["OM"], code: "", demo: "", category: ["om"] },
     { img: "", title: "Interest Calculator", description: "A basic interest calculator", projectTech: ["OM"], code: "", demo: "", category: ["om"] },
     { img: "images/todo.webp", title: "Todo App", description: "A basic Todo system", projectTech: ["React"], code: "", demo: "", category: ["react"] },
-    { img: "images/aceextension.png", title: "AccessAce", description: "Access token Management tool", projectTech: ["Extension"], code: "", demo: "", category: ["extension"] },
+    { img: "images/aceextension.png", title: "AccessAce", description: "Access token Management tool", projectTech: ["Extension"], code: "https://github.com/pmdarshan93/Advance-Java-Script-Assignments/tree/master/aceExtension", demo: "", category: ["extension"] },
     { img: "images/todo.webp", title: "Todo", description: "A basic todo app", projectTech: ["Extension"], code: "", demo: "", category: ["extension"] },
     { img: "images/bufo.png", title: "Bufo Merge", description: "POKI website game recreation", projectTech: ["scratch"], code: "", demo: "https://scratch.mit.edu/projects/1192007563/", category: ["scratch"] },
     { img: "images/shark.png", title: "Fish Catching", description: "POKI website game recreation", projectTech: ["scratch"], code: "", demo: "https://scratch.mit.edu/projects/1182870285/editor", category: ["scratch"] },
@@ -133,110 +134,14 @@ document.querySelectorAll(".filterBtn").forEach(btn => {
     });
 });
 
+document.querySelectorAll(".item").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".item").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    });
+});
+
+
 renderProjects("all");
 
 
-
-let educations = [
-    {
-        month: "JUN 2025",
-        course: "Scratch",
-        description: "Learned basic of Coding and visual progamming language",
-        projects: ["Bufo Merge"]
-    },
-    {
-        month: "JUL 2025",
-        course: "HTML/CSS",
-        description: "Learned basics of HTML and CSS and to develop web pages",
-        projects: ["Webpage"]
-    },
-    {
-        month: "SEP 2025",
-        course: "JS",
-        description: "Learned to convert static web page into dynamic web page",
-        projects: ["Pomodoro"]
-    },
-    {
-        month: "OCT 2025",
-        course: "JAVA",
-        description: "Learned JAVA basics",
-        projects: ["Password manager with file"]
-    },
-    {
-        month: "NOV 2025",
-        course: "Mysql",
-        description: "Learned basic DB creation and queries",
-        projects: [""]
-    },
-    {
-        month: "NOV 2025",
-        course: "Node JS",
-        description: "Learned node js and api",
-        projects: ["planet"]
-    },
-    {
-        month: "DEC 2025",
-        course: "Advance JAVA",
-        description: "Learned Db connection, collection framework",
-        projects: ["Password manager with DB"]
-    },
-    {
-        month: "JAN 2025",
-        course: "Advance JS",
-        description: "Learned websocket",
-        projects: ["Stone paper scissor"]
-    },
-    {
-        month: "JAN 2025",
-        course: "OM",
-        description: "Learned basics of OM",
-        projects: ["Class Management"]
-    },
-    {
-        month: "JAN 2025",
-        course: "REACT",
-        description: "Learned basics of REACT",
-        projects: ["Todo app"]
-    }
-]
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    educations.forEach((education, index) => {
-        let timelineItem = document.createElement("div");
-        let timelineDot = document.createElement("div");
-        let educationCard = document.createElement("div");
-        let monthDiv = document.createElement("div");
-        let monthIcon = document.createElement("i");
-        let monthSpan = document.createElement("span");
-        let course = document.createElement("h3");
-        let description = document.createElement("p");
-        let projectsList = document.createElement("ul");
-
-        timelineItem.classList.add("timeline-item", "animate-on-scroll");
-        if (index % 2 !== 0) timelineItem.classList.add("timeline-item-right");
-        timelineDot.classList.add("timeline-dot");
-        educationCard.classList.add("education-card");
-        monthDiv.classList.add("education-month");
-        monthIcon.classList.add("fa-regular", "fa-calendar");
-        course.classList.add("education-course");
-        description.classList.add("education-description");
-        projectsList.classList.add("education-projects");
-
-        monthSpan.innerText = education.month;
-        course.innerText = education.course;
-        description.innerText = education.description;
-
-        education.projects.forEach(project => {
-            let li = document.createElement("li");
-            li.innerText = project;
-            projectsList.appendChild(li);
-        });
-
-        monthDiv.append(monthIcon, monthSpan);
-        educationCard.append(monthDiv, course, description, projectsList);
-        timelineItem.append(timelineDot, educationCard);
-        timeline.append(timelineItem);
-    });
-});
