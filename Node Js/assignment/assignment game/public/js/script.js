@@ -1,226 +1,127 @@
 const clientSocket = io();
-let ownRoomId = $('#ownRoomId');
 let joinRoomId = $('#joinRoomId');
 let roomId;
 let mode;
-let menu=$('#menu');
-let gameContent=$('#gameContent');
+let menu = $('#menu');
+let gameContent = $('#gameContent');
 
-$('#createRoom').on('submit', async (e) => {
+// ── Create Room 
+$('#createRoom').on('submit', (e) => {
     e.preventDefault();
     clientSocket.emit('createRoom');
-})
+});
 
-clientSocket.on('roomId', (roomId) => {
-    console.log("created ROom" + roomId);
-    ownRoomId.text(roomId);
-})
+clientSocket.on('roomId', (id) => {
+    roomId = id.toString();
+    $('#ownRoomId').html('Room ID: <strong>' + roomId );
 
+});
+
+$('#btnEnterRoom').on('click', () => {
+    mode = 2;
+    menu.addClass('hide');
+    gameContent.removeClass('hide');
+    $('#showResult').text('Waiting for opponent to join…');
+    setButtonsEnabled(false);
+});
+
+clientSocket.on('opponentJoined', () => {
+    $('#showResult').text('Opponent joined! Make your choice.');
+    setButtonsEnabled(true);
+});
+
+// ── Join Room 
 $('#joinRoom').on('submit', (e) => {
     e.preventDefault();
-    console.log($('#joinRoomId').val());
-    clientSocket.emit('joinRoom', joinRoomId.val());
-    mode=2;
-    roomId=joinRoomId.val();
-    gameContent.removeClass('hide');
+    let val = joinRoomId.val().trim();
+    if (!val) return;
+    clientSocket.emit('joinRoom', val);
+});
+
+clientSocket.on('joinedRoom', (id) => {
+    roomId = id.toString();
+    mode = 2;
     menu.addClass('hide');
-    console.log('joined room ' + joinRoomId.val())
-})
+    gameContent.removeClass('hide');
+    $('#showResult').text('Room joined! Make your choice.');
+    setButtonsEnabled(true);
+});
 
-$('#vsComputer').on('click',(e)=>{
-  mode=1;
-  menu.addClass("hide");
-  gameContent.removeClass('hide');
-})
+clientSocket.on('roomFull', () => {
+    alert('Room is full! Try another Room ID.');
+});
 
-let opt = ["rock", "paper", "scissor", "lizard", "spock"]
-let player = 0
-let computer = 0
-let resultText = "";
-let rock = $("#rock");
-let scissor = $('#scissor');
-let paper = $('#paper');
-let spock = $('#spock');
-let lizard = $('#lizard');
-let result = $('#showResult');
-let playerChoice = $('#playerChoice');
-let computerChoice = $('#computerChoice');
-let playerScore = $('#playerScore');
+clientSocket.on('roomNotFound', () => {
+    alert('Room not found! Check the Room ID and try again.');
+});
+
+clientSocket.on('opponentLeft', () => {
+    $('#showResult').text('Opponent disconnected.');
+    setButtonsEnabled(false);
+});
+
+// ── VS com
+$('#vsComputer').on('click', () => {
+    mode = 1;
+    menu.addClass('hide');
+    gameContent.removeClass('hide');
+    $('#showResult').text('Pick your choice!');
+    setButtonsEnabled(true);
+});
+
+// ── Game variables
+const opt = ['rock', 'paper', 'scissor', 'lizard', 'spock'];
+let player = 0, computer = 0;
+let myPendingChoice = null;
+
+const winsAgainst = { 0:[2,3], 1:[0,4], 2:[1,3], 3:[1,4], 4:[0,2] };
+
+let result        = $('#showResult');
+let playerChoice  = $('#playerChoice');
+let computerChoice= $('#computerChoice');
+let playerScore   = $('#playerScore');
 let computerScore = $('#computerScore');
-let opponentPlayed = false;
-let opponentOption;
 
+// ── Click handler
 $('#rock, #scissor, #paper, #spock, #lizard').on('click', (e) => {
-  clientSocket.emit('myChoice',[roomId,opt.indexOf(e.target.id)]);
-  loading();
-})
+    let myIdx = opt.indexOf(e.target.id);
+    if (mode === 1) {
+        resolveRound(myIdx, Math.floor(Math.random() * 5));
+    } else {
+        myPendingChoice = myIdx;
+        setButtonsEnabled(false);
+        result.text('Waiting for opponent…');
+        clientSocket.emit('myChoice', [roomId, myIdx]);
+    }
+});
 
-function loading(){
-  console.log("loading");
+clientSocket.on('opponentOption', (oppIdx) => {
+    if (myPendingChoice !== null) {
+        resolveRound(myPendingChoice, oppIdx);
+        myPendingChoice = null;
+        setButtonsEnabled(true);
+    }
+});
+
+
+function resolveRound(myIdx, oppIdx) {
+    let txt;
+    if (myIdx === oppIdx) {
+        txt = 'DRAW';
+    } else if (winsAgainst[myIdx].includes(oppIdx)) {
+        player++;
+        txt = 'YOU WIN';
+    } else {
+        computer++;
+        txt = 'YOU LOSE';
+    }
+    result.text(txt);
+    playerChoice.attr('class',   `${opt[myIdx]}1 option`);
+    computerChoice.attr('class', `${opt[oppIdx]}1 option`);
+    playerScore.text('Player Score : ' + player);
+    computerScore.text('Opponent Score : ' + computer);
 }
 
-clientSocket.on('opponentOption', (option) => {
-  console.log("0pppppppppppppppppppponent",option)
-  opponentPlayed=true;
-  opponentOption = option;
-})
-
-
-function win(e) {
-  let myChoice = opt.indexOf(e.target.id);
-  let opponent = mode==1?computerGenerate():opponentOption;
-  if (myChoice == opponent) {
-    resultText = "DRAW"
-  }
-  else if (myChoice == 0) {
-    if ((opponent == 2 || opponent == 3)) {
-      player++
-      resultText = "YOU WIN"
-    }
-    else {
-      computer++
-      resultText = "YOU LOSE"
-    }
-  }
-  else if (myChoice == 1) {
-    if ((opponent == 0 || opponent == 4)) {
-      player++
-      resultText = "YOU WIN"
-    }
-    else {
-      computer++
-      resultText = "YOU LOSE"
-    }
-  }
-  else if (myChoice == 2) {
-    if ((opponent == 1 || opponent == 3)) {
-      player++
-      resultText = "YOU WIN"
-    }
-    else {
-      computer++
-      resultText = "YOU LOSE"
-    }
-  }
-  else if (myChoice == 3) {
-    if ((opponent == 1 || opponent == 4)) {
-      player++
-      resultText = "YOU WIN"
-    }
-    else {
-      computer++
-      resultText = "YOU LOSE"
-    }
-  }
-  else if (myChoice == 4) {
-    if ((opponent == 0 || opponent == 2)) {
-      player++
-      resultText = "YOU WIN"
-    }
-    else {
-      computer++
-      resultText = "YOU LOSE"
-    }
-  }
-
-  result.text(resultText);
-  playerChoice.attr('class', `${opt[myChoice]}1 option`);
-  computerChoice.attr('class', `${opt[opponent]}1 option`);
-  console.log(opponent)
-  playerScore.text("My Score : " + player);
-  computerScore.text("Opponent Score : " + computer);
+function setButtonsEnabled(on) {
+    $('#parent .option').css({ opacity: on ? '1' : '0.4', pointerEvents: on ? 'auto' : 'none' });
 }
-
-function computerGenerate() {
-    return Math.floor(Math.random() * 5);
-}
-
-// let rock = document.querySelector("#rock");
-// let scissor = document.querySelector("#scissor");
-// let paper = document.querySelector("#paper");
-// let spock = document.querySelector("#spock");
-// let lizard = document.querySelector("#lizard");
-
-
-
-
-// rock.addEventListener("click",function(e){
-//    win(e)
-// })
-// paper.addEventListener("click",function(e){
-//    win(e)
-// })
-// scissor.addEventListener("click",function(e){
-//    win(e)
-// })
-// spock.addEventListener("click",function(e){
-//    win(e)
-// })
-// lizard.addEventListener("click",function(e){
-//    win(e)
-// })
-
-// function  win(e) {
-//     let choose = opt.indexOf(e.target.id)
-//     let opponent = Math.floor(Math.random()*5);
-//     if(choose ==0){
-//     if( (opponent ==2 || opponent==3 ) ){
-//           player ++ 
-//          result="YOU WIN"
-//           }
-//           else{
-//             computer++
-//             result="YOU LOSE"
-//           }
-//     }
-//         if(choose ==1){
-//     if( (opponent ==0 || opponent==4 ) ){
-//           player ++ 
-//          result="YOU WIN"
-//           }
-//           else{
-//             computer++
-//             result="YOU LOSE"
-//           }
-//     }
-//         if(choose ==2){
-//     if( (opponent ==1 || opponent==3 ) ){
-//           player ++ 
-//          result="YOU WIN"
-//           }
-//           else{
-//             computer++
-//             result="YOU LOSE"
-//           }
-//     }
-//         if(choose ==3){
-//     if( (opponent ==1 || opponent==4 ) ){
-//           player ++ 
-//          result="YOU WIN"
-//           }
-//           else{
-//             computer++
-//             result="YOU LOSE"
-//           }
-//     }
-//         if(choose ==4){
-//     if( (opponent==0 || opponent==2 ) ){
-//           player ++ 
-//          result="YOU WIN"
-//           }
-//           else{
-//             computer++
-//             result="YOU LOSE"
-//           }
-//     }
-//     if(choose==opponent){
-//       computer--
-//       result="DRAW"
-//     }
-//     document.querySelector("#showresult").innerText=result
-//     document.querySelector("#playerchoice").className=`${opt[choose]}1 option`
-//     document.querySelector("#computerchoice").className=`${opt[opponent]}1 option`
-//     document.querySelector("#player").innerText="Player :"+player;
-//     document.querySelector("#computer").innerText="Computer :"+computer;
-// }
-

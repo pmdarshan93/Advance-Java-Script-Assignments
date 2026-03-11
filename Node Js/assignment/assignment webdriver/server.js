@@ -2,12 +2,21 @@ const port = 2507;
 const path = require('path');
 const express = require('express');
 const { test } = require('./public/utils/utils')
+const { con } = require('./public/utils/dbConnection');
 
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv')
 const cookieparser = require('cookie-parser');
 
 const app = express();
+
+con.connect((err)=>{
+    if(err){
+        console.log("Database connection error:",err);
+    }else{
+        console.log("Database connected successfully");
+    }
+});
 
 // is to tell where the static files are located
 app.use(express.static(path.join(__dirname, "public")))
@@ -95,14 +104,17 @@ app.post('/signup', (req, res) => {
     const insertQuery = "insert into userList (useremail,password,name) values(?,?,?)"
 
     con.query(checkQuery, [email], (err, result) => {
-        if (err)
+        if (err){
+            console.log(err)
             return res.sendStatus(500);
+        }
 
         if (result.length > 0){
             return res.sendStatus(409)
         }
             con.query(insertQuery, [email, password, name], (err, result) => {
                 if (err){
+                    console.log(err)
                    return res.sendStatus(500);
                 }
                    return res.sendStatus(201)

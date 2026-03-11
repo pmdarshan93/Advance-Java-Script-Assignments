@@ -66,3 +66,4 @@ function showTables() {
 function hideTables() {
   document.querySelector("#result").classList.add("hide");
 }
+

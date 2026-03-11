@@ -1,6 +1,3 @@
-const axios=require('axios');
-
-
 
 async function test(food){
     const url= `https://api.calorieninjas.com/v1/nutrition?query=${food}`;
